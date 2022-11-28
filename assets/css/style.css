@@ -1,15 +1,15 @@
 * {
   box-sizing: border-box;
-  width: 100%;
 }
 
 #main-header {
   background-image: linear-gradient(to right, rgb(101, 166, 206, 0.75), rgba(41, 81, 145, 0.95));
-  margin: 20px 10px;
+  margin: 20px 20px;
   border-radius: 0.15cm;
 }
 
-#content {
+#content,
+#app-sections {
   margin: 20px 10px;
 }
 
@@ -27,4 +27,28 @@
 .btn:hover {
   background-color: rgb(92, 150, 175);
   color: whitesmoke;
+}
+
+#weather-container,
+#weather-cards {
+  margin-left: 10px;
+}
+
+#weather-city-name,
+#date-time {
+  text-transform: capitalize;
+  font-size: x-large;
+  font-weight: bolder;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0px;
+}
+
+li {
+  padding: 5px;
+  font-size: larger;
+  font-weight: 500;
 }

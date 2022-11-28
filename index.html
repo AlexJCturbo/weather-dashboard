@@ -17,14 +17,14 @@
 
 <body>
   <header id="main-header" class="text-center">
-    <div id="div-header" class="row  p-3">
+    <div id="div-header" class="row p-2">
       <div class="col-sm-4 col-md-4"></div>
       <h1 class="col-sm-8 col-md-8 text-light">Weather Dashboard</h1>
     </div>
   </header>
 
-  <div id="content">
-    <div id="content" class="row">
+  <div id="app-content">
+    <div id="app-sections" class="row">
       <div class="card col-sm-5 col-md-4 ">
         <div class="card-body">
           <h5 class="card-title text-center fs-2">Search for a City:</h5>
@@ -36,16 +36,16 @@
             <br>
 
             <div class="city-btns">
-              <button type="button" class=" btn mb-2" data-city="Toronto,CA">Toronto</button>
-              <button type="button" class=" btn mb-2" data-city="Montreal,CA">Montreal</button>
-              <button type="button" class=" btn mb-2" data-city="Vancouver,CA">Vancouver</button>
-              <button type="button" class=" btn mb-2" data-city="Calgary,CA">Calgary</button>
-              <button type="button" class=" btn mb-2" data-city="Ottawa,CA">Ottawa</button>
-              <button type="button" class=" btn mb-2" data-city="Edmonton,CA">Edmonton</button>
-              <button type="button" class=" btn mb-2" data-city="Winnipeg,CA">Winnipeg</button>
-              <button type="button" class=" btn mb-2" data-city="Quebec+City,CA">Quebec City</button>
-              <button type="button" class=" btn mb-2" data-city="Halifax,CA">Halifax</button>
-              <button type="button" class=" btn mb-2" data-city="Hamilton,CA">Hamilton</button>
+              <button type="button" class=" btn mb-2" data-city="Toronto,+CA">Toronto</button>
+              <button type="button" class=" btn mb-2" data-city="Montreal,+CA">Montreal</button>
+              <button type="button" class=" btn mb-2" data-city="Vancouver,+CA">Vancouver</button>
+              <button type="button" class=" btn mb-2" data-city="Calgary,+CA">Calgary</button>
+              <button type="button" class=" btn mb-2" data-city="Ottawa,+CA">Ottawa</button>
+              <button type="button" class=" btn mb-2" data-city="Edmonton,+CA">Edmonton</button>
+              <button type="button" class=" btn mb-2" data-city="Winnipeg,+CA">Winnipeg</button>
+              <button type="button" class=" btn mb-2" data-city="Quebec+City,+CA">Quebec City</button>
+              <button type="button" class=" btn mb-2" data-city="Halifax,+CA">Halifax</button>
+              <button type="button" class=" btn mb-2" data-city="Hamilton,+CA">Hamilton</button>
             </div>
 
           </form>
@@ -53,20 +53,35 @@
 
       </div>
 
-      <div class=" col-sm-7 col-md-8">
 
-        <div class="border border-secondary">
-          <div id="city-weather-container">City Name</div>
+      <div id="city-weather-container" class="col-sm-7 col-md-8">
+
+        <div>
+
+          <div id="weather-container" class="row">
+            <div id="weather-city-name" class="col-4 p-2"></div>
+            <span id="date-time" class="col-8 p-2"></span>
+            <div id="weather-info" class="row">
+              <ul id="weather-details" class="col-8 p-2">
+
+              </ul>
+            </div>
+          </div>
+
+
         </div>
+
         <br>
 
-        <div>5-Day Forecast</div>
+        <div id="weather-cards">5-Day Forecast</div>
 
       </div>
 
     </div>
   </div>
 
+  <!-- moment.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="./assets/js/index.js"></script>
 </body>
 
