@@ -16,7 +16,56 @@
 </head>
 
 <body>
+  <header id="main-header" class="text-center">
+    <div id="div-header" class="row  p-3">
+      <div class="col-sm-4 col-md-4"></div>
+      <h1 class="col-sm-8 col-md-8 text-light">Weather Dashboard</h1>
+    </div>
+  </header>
 
+  <div id="content">
+    <div id="content" class="row">
+      <div class="card col-sm-5 col-md-4 ">
+        <div class="card-body">
+          <h5 class="card-title text-center fs-2">Search for a City:</h5>
+          <form id="city-form" class="card-body ">
+            <input id="city-name" type="text" autofocus="true" class="form-input w-100 mb-2" placeholder="Toronto" />
+            <button id="search-btn" type="submit" class="btn ">Search</button>
+            <br>
+            <div class="border-bottom border-secondary"></div>
+            <br>
+
+            <div class="city-btns">
+              <button type="button" class=" btn mb-2" data-city="Toronto,CA">Toronto</button>
+              <button type="button" class=" btn mb-2" data-city="Montreal,CA">Montreal</button>
+              <button type="button" class=" btn mb-2" data-city="Vancouver,CA">Vancouver</button>
+              <button type="button" class=" btn mb-2" data-city="Calgary,CA">Calgary</button>
+              <button type="button" class=" btn mb-2" data-city="Ottawa,CA">Ottawa</button>
+              <button type="button" class=" btn mb-2" data-city="Edmonton,CA">Edmonton</button>
+              <button type="button" class=" btn mb-2" data-city="Winnipeg,CA">Winnipeg</button>
+              <button type="button" class=" btn mb-2" data-city="Quebec+City,CA">Quebec City</button>
+              <button type="button" class=" btn mb-2" data-city="Halifax,CA">Halifax</button>
+              <button type="button" class=" btn mb-2" data-city="Hamilton,CA">Hamilton</button>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+
+      <div class=" col-sm-7 col-md-8">
+
+        <div class="border border-secondary">
+          <div id="city-weather-container">City Name</div>
+        </div>
+        <br>
+
+        <div>5-Day Forecast</div>
+
+      </div>
+
+    </div>
+  </div>
 
   <script src="./assets/js/index.js"></script>
 </body>

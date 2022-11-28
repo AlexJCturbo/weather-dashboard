@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+#main-header {
+  background-image: linear-gradient(to right, rgb(101, 166, 206, 0.75), rgba(41, 81, 145, 0.95));
+  margin: 20px 10px;
+  border-radius: 0.15cm;
+}
+
+#content {
+  margin: 20px 10px;
+}
+
+.btn {
+  font-size: 1.2rem;
+  text-decoration: none;
+  padding: 4px 3px;
+  width: 100%;
+  display: block;
+  margin: 4px 0;
+  background-color: #008CBA;
+  color: whitesmoke;
+}
+
+.btn:hover {
+  background-color: rgb(92, 150, 175);
+  color: whitesmoke;
+}
