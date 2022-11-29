@@ -20,7 +20,7 @@ var cardsHeader = document.querySelector('#cards-header');
 
 //Get city latitude and longitude
 var getLatitudeLongitude = function (city) {
-  var geocodeUrl = 'http://api.openweathermap.org/geo/1.0/direct?q=' + city + '&limit=1&appid=' + API_key;
+  var geocodeUrl = 'https://api.openweathermap.org/geo/1.0/direct?q=' + city + '&limit=1&appid=' + API_key;
   fetch(geocodeUrl)
     .then(function (res) {
       if (res.ok) {
@@ -111,7 +111,7 @@ var displayWeather = function (weather, cityQuery) {
 
   //Weather icon
   var iconCode = weather.list[0].weather[0].icon
-  weatherIconHeader.setAttribute('src', 'http://openweathermap.org/img/wn/' + iconCode + '@2x.png')
+  weatherIconHeader.setAttribute('src', 'https://openweathermap.org/img/wn/' + iconCode + '@2x.png')
 
   //Adding current temp, wind and humidity
   var cityTemp = weather.list[0].main.temp;
@@ -168,7 +168,7 @@ var display5DayForecast = function (weather, city) {
     //Adding weather icon
     var iconCode = weather.list[i].weather[0].icon
     var cardIcon = document.createElement('img');
-    cardIcon.setAttribute('src', 'http://openweathermap.org/img/wn/' + iconCode + '@2x.png');
+    cardIcon.setAttribute('src', 'https://openweathermap.org/img/wn/' + iconCode + '@2x.png');
     cardIcon.className = 'mx-auto';
     create5DayCards.appendChild(cardIcon);
 
