@@ -8,7 +8,7 @@
   border-radius: 0.15cm;
 }
 
-#content,
+#app-content,
 #app-sections {
   margin: 20px 10px;
 }
@@ -20,7 +20,7 @@
   width: 100%;
   display: block;
   margin: 4px 0;
-  background-color: #008CBA;
+  background-color: #0070ba;
   color: whitesmoke;
 }
 
@@ -30,8 +30,21 @@
 }
 
 #weather-container,
-#weather-cards {
+#weather-cards-section {
   margin-left: 10px;
+}
+
+/* #weather-container {
+  display: none;
+  background-color: rgba(41, 81, 145);
+  color: ghostwhite
+} */
+
+#cards-header {
+  font-weight: 750;
+  font-size: x-large;
+  padding: 10px;
+  border: none;
 }
 
 #weather-city-name,
@@ -41,14 +54,19 @@
   font-weight: bolder;
 }
 
+#card-body {
+  background-color: rgba(41, 81, 145, 0.9);
+  color: ghostwhite
+}
+
 ul {
-  list-style-type: none;
   margin: 0;
   padding: 0px;
 }
 
 li {
+  list-style-type: none;
   padding: 5px;
-  font-size: larger;
+  font-size: large;
   font-weight: 500;
 }
