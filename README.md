@@ -25,11 +25,11 @@ SO THAT I can find display the weather forecast from different cities
 
 
 ## Screen Captures
-![weather dashboard 01 main](./utils/images/scheduler_01_main.png)
+![weather dashboard 01 main](./utils/images/weather_dashboard_01_main.png)
 
-![weather dashboard 02 buttons](./utils/images/scheduler_02_add_task.png)
+![weather dashboard 02 main](./utils/images/weather_dashboard_02_main.png)
 
-![weather dashboard 03 responsive](./utils/images/scheduler_03_responsive.png)
+![weather dashboard 03 responsive](./utils/images/weather_dashboard_03_responsive.png)
 ###### [Back to Index](#Table-of-Contents)
 
 
