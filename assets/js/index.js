@@ -1,5 +1,4 @@
 var API_key = '85b1e743583c0abec7333d043446850e';
-//var API_key2 = 'c99b2bd36d5dca4b01a0626259ed08d5';
 
 //Form querySelectors
 var userFormEl = document.querySelector('#city-form');
@@ -19,7 +18,7 @@ var weatherCardSection = document.querySelector('#weather-cards-section');
 var cardsHeader = document.querySelector('#cards-header');
 
 
-//convert city to latitude and longitude
+//Get city latitude and longitude
 var getLatitudeLongitude = function (city) {
   var geocodeUrl = 'http://api.openweathermap.org/geo/1.0/direct?q=' + city + '&limit=1&appid=' + API_key;
   fetch(geocodeUrl)
@@ -41,10 +40,9 @@ var getLatitudeLongitude = function (city) {
     });
 }
 
-//Get city name from feature city buttons and run getLatitudeLongitude() function
+//Get city name from feature buttons and run getLatitudeLongitude() function
 var featureCitiesBtn = function (event) {
   var city = event.target.getAttribute('data-city');
-  //console.log(city);
 
   if (city) {
     cityWeatherContainerEl = '';
@@ -52,12 +50,11 @@ var featureCitiesBtn = function (event) {
   };
 };
 
-//Collect city name from the input element, pass it to getWeatherData() and run this function
+//Collect city name from the input element and pass it to getWeatherData()
 var formSubmit = function (event) {
   event.preventDefault();
   var citySearch = userCityQueryEl.value.trim();
   var city = citySearch.split(' ').join('+');
-  //console.log(city);
 
   if (city) {
     getLatitudeLongitude(city);
@@ -67,7 +64,7 @@ var formSubmit = function (event) {
   };
 };
 
-//Get weather data from city's lat and lon from getLatitudeLongitude()
+//Get weather data using lat and lon from getLatitudeLongitude()
 var getWeatherData = function (lat, lon, city) {
   var apiUrl = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&units=metric&appid=' + API_key;
   console.log(apiUrl);
@@ -75,7 +72,7 @@ var getWeatherData = function (lat, lon, city) {
     .then(function (res) {
       if (res.ok) {
         res.json().then(function (data) {
-          console.log(city, data);
+          //console.log(city, data);
           displayWeather(data, city);
           display5DayForecast(data, city);
         })
@@ -91,41 +88,25 @@ var getWeatherData = function (lat, lon, city) {
 
 //Display weather in the webpage
 var displayWeather = function (weather, cityQuery) {
+  //Clearing previous content
   weatherDetails.textContent = '';
-  //Adding city name from query to container
-  // weatherResultsContainer.setAttribute('style', 'display:inline;')
-
+  //Adding border
   weatherResultsContainer.classList.add('border');
   weatherResultsContainer.classList.add('border-secondary');
-  // weatherResultsContainer.classList.add('bg-primary');
-  // weatherResultsContainer.classList.add('text-light');
-
+  //Format city name to display
   weatherCityNane.textContent = cityQuery.split('+').join(' ');
-
   //Adding date and time at the city
   var countryOfCity = weather.city.country;
   var citiesofCountry = moment.tz.zonesForCountry(countryOfCity);
-  //console.log(citiesofCountry);
-
-  //Create a for loop to find city and region to get correct time zone
-  // for (var i = 0; i < citiesofCountry.length; i++) {
-  //   var getregionOfCity = citiesofCountry[i].city;
-  //   console.log(getregionOfCity);
-  // };
-
+  //Get region of the city for time zone
   var getRegionOfCity = citiesofCountry[0].split('/');
   region = getRegionOfCity[0];
-  //console.log(region);
-
   splitCityProvince = cityQuery.split(',');
-  //console.log(splitCityProvince);
-
   cityFormat = splitCityProvince[0].split('+').join('_');
-  //console.log(cityFormat);
 
+  //Geting time zone from moment.js
   moment.tz.setDefault('America/Toronto');
   var dateTime = moment().tz(region + '/' + cityFormat).format("ddd, MMM D YYYY, HH:mm");
-  //console.log('Time: ' + dateTime);
   dateTimeEl.textContent = dateTime;
 
   //Weather icon
@@ -144,18 +125,21 @@ var displayWeather = function (weather, cityQuery) {
   var cityHumidity = weather.list[0].main.humidity;
   var humidityEl = document.createElement("li");
   humidityEl.innerHTML = 'Humidity: ' + cityHumidity + '%'
-  //console.log(cityTemp, cityWind, cityHumidity);
 
+  //Appending data to web page
   weatherDetails.appendChild(tempEl);
   weatherDetails.appendChild(windEl);
   weatherDetails.appendChild(humidityEl);
 };
 
-//Display the 5-day forecast
+//Display 5-day forecast
 var display5DayForecast = function (weather, city) {
+  //Clear previous content
   weatherCardSection.textContent = '';
   weatherCardSection.className = 'row d-inline'
 
+  //Creating dynamic elements
+  //5-day forecast header
   var weatherCardsHeader = document.createElement('h5');
   weatherCardsHeader.className = 'col-sm-8 col-md-12';
   weatherCardsHeader.setAttribute('id', 'cards-header');
@@ -166,34 +150,34 @@ var display5DayForecast = function (weather, city) {
   weatherCardsTopDiv.className = 'row';
   weatherCardSection.appendChild(weatherCardsTopDiv);
 
-
+  //For loop over API data received from fetch() to obtain the data for the 5-day forecast
   for (var i = 7; i < weather.list.length; i += 8) {
+    //Creating dynamic cards
     var create5DayCards = document.createElement('div');
     create5DayCards.setAttribute('id', 'card-body');
     create5DayCards.className = 'card m-1 col-sm-6 col-md-3 col-lg border border-0';
     weatherCardsTopDiv.appendChild(create5DayCards);
 
+    //Adding date to each card
     var fiveDaysDate = moment().add((i * 3), 'h').format("ddd, MMM D YYYY");
-    //console.log(fiveDaysDate);
-
     var cardDate = document.createElement('h6');
     cardDate.className = 'card-title';
     cardDate.textContent = fiveDaysDate;
     create5DayCards.appendChild(cardDate);
 
-    //Adding the weather icon
+    //Adding weather icon
     var iconCode = weather.list[i].weather[0].icon
-    //console.log(iconCode);
     var cardIcon = document.createElement('img');
     cardIcon.setAttribute('src', 'http://openweathermap.org/img/wn/' + iconCode + '@2x.png');
     cardIcon.className = 'mx-auto';
     create5DayCards.appendChild(cardIcon);
 
+    //Creating ul for weather data
     var cardUl = document.createElement('ul');
     cardUl.className = 'card-text';
     create5DayCards.appendChild(cardUl);
 
-    //Getting weather data from API data
+    //creating li elements and append weather info from API data
     var cardTempLi = document.createElement('li');
     var temp = weather.list[i].main.temp;
     cardTempLi.innerHTML = 'Temp: ' + temp + '°C';
