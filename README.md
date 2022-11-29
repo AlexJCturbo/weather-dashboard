@@ -1,4 +1,4 @@
-# weather Dashboard
+# Weather Dashboard
 
 ## Table of Contents
 - [Project Description](#Project-Description)
@@ -25,11 +25,11 @@ SO THAT I can find display the the weather forecast from different cities
 
 
 ## Screen Captures
-![Scheduler 01 main](./utils/images/scheduler_01_main.png)
+![weather dashboard 01 main](./utils/images/scheduler_01_main.png)
 
-![Scheduler 02 adding task](./utils/images/scheduler_02_add_task.png)
+![weather dashboard 02 buttons](./utils/images/scheduler_02_add_task.png)
 
-![Scheduler 03 responsive design](./utils/images/scheduler_03_responsive.png)
+![weather dashboard 03 responsive](./utils/images/scheduler_03_responsive.png)
 ###### [Back to Index](#Table-of-Contents)
 
 
@@ -40,5 +40,5 @@ SO THAT I can find display the the weather forecast from different cities
 ###### [Back to Index](#Table-of-Contents)
 
 ## Links
-- [Deployed Application](https://alexjcturbo.github.io/work-day-scheduler/)
+- [Deployed Application](https://alexjcturbo.github.io/weather-dashboard/)
 ###### [Back to Index](#Table-of-Contents)
